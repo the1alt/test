@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>formulaire JQuery</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="summernote/summernote.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.4.0/css/bootstrap-slider.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/css/bootstrap-datetimepicker.css">
+    <link rel="stylesheet" href="colorpicker/css/colorpicker.css">
+  </head>
+  <body style="padding-top:30px;font-size:14px">
+
+    <div class="container">
+      <div class="col-md-8 col-md-offset-2">
+        <form novalidate class="form-horizontal">
+          <div class="form-group has-error">
+            <label for="produit" class="col-sm-3 control-label">Produit</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="produit" placeholder="Nom du produit">
+            </div>
+          </div>
+
+          <div class="form-group has-error">
+            <label for="codeBar" class="col-sm-3 control-label">Code Barre</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="codeBar" placeholder="Code Barre">
+            </div>
+          </div>
+
+          <div class="form-group has-error">
+            <div class="col-sm-3" >
+              <label for="description" class="col-sm-12 control-label" style="padding-right:0">Description
+              </label>
+            </div>
+            <div class="col-sm-9" id="summer">
+              <textarea class="form-control" id="description" placeholder="Description" rows="2"></textarea>
+            </div>
+          </div>
+
+          <div class="form-group has-error">
+            <label for="prix" class="col-sm-3 control-label">Prix</label>
+            <div class="col-sm-7">
+              <input style="width:95% ;" id="prix" type="text" data-slider-ticks="[0, 100, 200, 300, 400, 500]" data-slider-ticks-snap-bounds="10" data-slider-ticks-labels='["0 €", "100 €", "200 €", "300 €", "400 €", "500 €"]'/>
+            </div>
+            <div class="col-sm-2">
+              <p id="price" style="display:none"></p>
+            </div>
+          </div>
+
+          <div class="form-group has-error">
+            <label for="disponibilite" class="col-sm-3 control-label">Disponibilité</label>
+            <div class="col-sm-9">
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type="text" class="form-control" id="disponibilite" placeholder="Disponibilité">
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+
+          </div>
+
+          <div class="form-group has-error">
+            <label for="heureDispo" class="col-sm-3 control-label">Heure de disponibilité</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="heureDispo" placeholder="Heure de disponibilité">
+            </div>
+          </div>
+
+          <div class="form-group has-error">
+            <label for="image" class="col-sm-3 control-label">Image</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="image" placeholder="Image">
+            </div>
+          </div>
+
+          <div class="form-group has-error">
+            <label for="quantitemin" class="col-sm-3 control-label">Quantité minimum</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="quantitemin" placeholder="Quantité minimum">
+            </div>
+          </div>
+          <div class="form-group has-error">
+            <label for="quantitemax" class="col-sm-3 control-label">Quantité maximum</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="quantitemax" placeholder="Quantité maximum">
+            </div>
+          </div>
+
+
+          <div class="form-group has-error">
+            <div class="col-sm-3">
+              <label for="motclef" class="col-sm-12 control-label" style="padding-right:0">Mots-Clés</label>
+              <p id="compteur" style="text-align:right">0 mot(s)</p>
+            </div>
+            <div class="col-sm-9">
+              <textarea class="form-control" id="motclef" placeholder="Mots-Clés" rows="2"></textarea>
+            </div>
+          </div>
+
+          <div class="form-group has-error">
+            <div class="col-sm-3">
+              <label for="couleur" class="col-sm-12 control-label" >Couleur</label>
+            </div>
+            <div class="col-sm-9 ">
+              <div class="input-group">
+                <span class="input-group-addon">#</span>
+                  <input type="text" class="form-control" id="couleur" placeholder="Couleur" value="ffffff">
+              </div>
+
+            </div>
+          </div>
+
+          <div class="form-group has-error">
+            <div class="col-sm-3">
+              <label for="typeVente" class="col-sm-12 control-label">Type de vente</label>
+            </div>
+            <div class="col-sm-9" >
+              <select class="form-control" id="typeVente">
+                <option disabled selected>...</option>
+                <option>Neuf</option>
+                <option>Occasion</option>
+                <option>Dématérialisé</option>
+                <option id=typeVenteAutre>Autre</option>
+              </select>
+              <textarea id="typeArea" style="display:none" class="form-control" placeholder="Quel autre type de vente?" rows="2"></textarea>
+            </div>
+          </div>
+          <div class="form-group"id="venteTypeText" style="display:none">
+            <div class="col-sm-9 col-sm-offset-3">
+              <textarea class="form-control" placeholder="Quel autre type de vente?" rows="2"></textarea>
+            </div>
+          </div>
+
+          <div class="col-sm-12 text-center">
+            <button type="button" disabled="disabled" class="btn btn-danger" id="btn">Créer cette fiche produit</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/locale/fr.js" charset="utf-8"></script>
+    <script src="
+https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.4.0/bootstrap-slider.min.js" charset="utf-8"></script>
+    <script src="summernote/summernote.js"></script>
+    <script src="mask/jquery.mask.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/js/bootstrap-datetimepicker.min.js" charset="utf-8"></script>
+    <script src="colorpicker/js/colorpicker.js" charset="utf-8"></script>
+    <script src="exo2.js" charset="utf-8"></script>
+
+  </body>
+</html>

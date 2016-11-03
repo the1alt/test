@@ -1,0 +1,20 @@
+{
+  "name": "jquery",
+  "version": "0.0.0",
+  "description": "test bower",
+  "authors": [
+    "the_alt"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.7",
+    "datepicker": "*"
+  }
+}
